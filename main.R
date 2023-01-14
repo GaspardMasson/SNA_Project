@@ -24,8 +24,11 @@ source("functions/dataset.R",local=T)
 dolphins <- read.graph("../Data/dolphins.gml",format="gml")
 
 
-# Test the function
+# Create the dataset for the dolphins graph
 
 dolphins_dataset = create_dataset(dolphins)
 
+# Save the dataset in a csv file
+
 write.csv(dolphins_dataset, file = "outputs/dolphins_dataset.csv", append = FALSE, quote = TRUE, sep = ";")
+
