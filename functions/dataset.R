@@ -1,5 +1,8 @@
 # Create the functions to get a dataset
   
+# init_dataset prend un graphe, calcule les modularités L R et M et renvoie un dataset avec les ARI de chaque noeud pour chaque modularité 
+# + le meilleur ARI (notre classe qu'on voudra prédire)
+
 init_dataset <- function(G){
   M <- c()
   for (node in V(G)){
@@ -14,6 +17,8 @@ init_dataset <- function(G){
   }
   return(M)
 } 
+
+# calculate_centralities prend un graphe et renvoie un dataset avec les centralités de chaque noeud pour chaque centralité (une vingtaine de centralités)
 
 calculate_centralities <- function(graph){
     library(igraph)
@@ -39,6 +44,10 @@ calculate_centralities <- function(graph){
     rownames(centralities) <- V(graph)$name
     return(centralities)
 }
+
+# create_dataset prend un graphe et renvoie un dataset avec les ARI de chaque noeud pour chaque modularité 
+# + le meilleur ARI (notre classe qu'on voudra prédire)
+# + les centralités de chaque noeud pour chaque centralité (une vingtaine de centralités)
 
 create_dataset <- function(G){
   return(cbind(init_dataset(G),calculate_centralities(G)))
