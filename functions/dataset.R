@@ -32,7 +32,6 @@ calculate_centralities <- function(graph){
                               leverage = leverage(graph),
                               lin = lincent(graph),
                               communicabilitybetweenness = communibet(graph),
-                              katz = katzcent(graph),
                               radiality = radiality(graph),
                               markov = markovcent(graph),
                               laplacian = laplacian(graph),
